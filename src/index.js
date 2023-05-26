@@ -35,3 +35,17 @@ function renderDetails(ramen) {
 function el(elementName) {
     return document.getElementById(elementName)
 }
+
+el("new-ramen").addEventListener('submit', createNewRamen)
+
+function createNewRamen(e) {
+    e.preventDefault()
+    const newRamen = {
+        name: e.target.name.value,
+        rating: e.target.rating.value,
+        restaurant: e.target.restaurant.value,
+        image: e.target.image.value,
+        comment: e.target['new-comment'].value
+    }
+    renderRamen(newRamen)
+}
